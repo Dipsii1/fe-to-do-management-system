@@ -1,10 +1,10 @@
 import { GalleryVerticalEnd } from "lucide-react"
 
-import { LoginForm } from "@/components/custom-component/login-form"
 import { getCookie } from "@/context/cookies";
 import { redirect } from "next/navigation";
+import { RegisterForm } from "@/components/custom-component/register-form";
 
-export default async function LoginPage() {
+export default async function RegisterPage() {
   const cookie = await getCookie("token");
   if (cookie) {
     redirect("/");
@@ -19,7 +19,7 @@ export default async function LoginPage() {
           </div>
           Acme Inc.
         </a>
-        <LoginForm />
+        <RegisterForm />
       </div>
     </div>
   )
