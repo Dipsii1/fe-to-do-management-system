@@ -8,9 +8,6 @@ export default [
       ...js.configs.recommended.languageOptions,
       ecmaVersion: 'latest',
       sourceType: 'module',
-      ecmaFeatures: {
-        jsx: true,
-      },
     },
     plugins: {
       react: eslintPluginReact,
