@@ -1,27 +1,12 @@
-import js from '@eslint/js'
-import eslintPluginReact from 'eslint-plugin-react'
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import pluginReact from "eslint-plugin-react";
 
+
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-  {
-    files: ['**/*.js', '**/*.jsx'],
-    languageOptions: {
-      ...js.configs.recommended.languageOptions,
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-    },
-    plugins: {
-      react: eslintPluginReact,
-    },
-    rules: {
-      ...js.configs.recommended.rules,
-      'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error',
-      'react/react-in-jsx-scope': 'off',
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
-  },
-]
+  {files: ["**/*.{js,mjs,cjs,jsx}"]},
+  {languageOptions: { globals: globals.node }},
+  pluginJs.configs.recommended,
+  pluginReact.configs.flat.recommended,
+];
